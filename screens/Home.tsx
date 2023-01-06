@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { Button, View, Text } from "react-native";
+import { StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import productsList from "../global_var";
 
 const Home = () => {
 
@@ -19,25 +22,11 @@ const Home = () => {
   const handleBarCodeScanned = async ({ type, data }: {type:any, data:any}) => {
 
     setScanned(true);
-    
-    let response = fetch(`https://fr.openfoodfacts.org/api/v0/product/${data}`);
-    if ((await response).ok) {
-      const data = (await response).json();
-      console.log(data);
-    }
-    //.then((result: { text: () => any; }) => result.text())
-    //.then((textformat: any) => textformat);
 
-    //produit = response.text();
-
-    //.then((response: { json: () => any; }) => console.log(response.json()))
-    //.then((res: any) => {prout=res});
-    //.then((result: { text: () => any; }) => result.text())
-    //.then((textformat: any) => console.log(textformat));
+    productsList.push( {id: String(productsList.length+1), productName: data} );
 
     console.log(data);
 
-    //let obj = JSON.parse(response);
     alert(`Ça marche ${data}`);
   };
 
@@ -49,13 +38,24 @@ const Home = () => {
   }
 
   return (
-      <View>
+      <SafeAreaView>
           <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+          style={styles.scanner}
           />
           {scanned && <Button title={'Appuyer pour scanner de nouveau'} onPress={() => setScanned(false)} />}
-      </View>
+      </SafeAreaView>
   );
-};
+
+ 
+}
+
+const styles = StyleSheet.create({
+  scanner: {
+    height: '95%',
+    width: '100%',
+    margin: 0
+  }
+});
 
 export default Home;

@@ -3,21 +3,18 @@ import { View, Text, StyleSheet } from 'react-native';
 const ProductElement = props => {
 
   const colorStyle = {
-    backgroundColor: props.hexCode,
+    backgroundColor: '#2aa198',
   };
   
   const textStyle = {
-    color:
-      parseInt(props.hexCode.replace('#', ''), 16) > 0xffffff / 1.1
-        ? 'black'
-        : 'white',
+    color: '#2aa198'
   };
 
   render  = () => JSX.Element; {
     return(
       <View style={[styles.box, colorStyle]}>
         <Text style={[styles.text, textStyle]}>
-          {props.colorName} {props.hexCode}
+          {props.productName}
         </Text>
       </View>
     );
