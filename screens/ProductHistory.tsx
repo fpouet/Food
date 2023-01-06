@@ -25,7 +25,7 @@ const ProductHistory = ({ navigation }: {navigation:any}) => {
         renderItem={({ item }: ListRenderItemInfo<any>) => (
           <ProductElement productName={item.productName} />
         )}
-        ListHeaderComponent={<Text>Les produits</Text>}
+        ListHeaderComponent={<Text>Vos produits</Text>}
       />
     </View>
   );

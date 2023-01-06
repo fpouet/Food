@@ -1,15 +1,15 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import Home from "./screens/Home";
 import ProductHistory from "./screens/ProductHistory";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import productsList from "./global_var";
+import Home from "./screens/Home";
 
 const Stack = createStackNavigator();
 
 const App = () => {
-  productsList.push({id:String(productsList.length+1), productName:'65465465'});
+  productsList.push({id:String(productsList.length+1), productName:'Jus d\'orange'});
   const fetch = require('node-fetch');
 
   return (

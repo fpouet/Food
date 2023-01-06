@@ -27,7 +27,7 @@ const Home = () => {
 
     console.log(data);
 
-    alert(`Ça marche ${data}`);
+    alert(`Produit Ajouté !`);
   };
 
   if (hasPermission === null) {

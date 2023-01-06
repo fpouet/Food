@@ -7,7 +7,7 @@ const ProductElement = props => {
   };
   
   const textStyle = {
-    color: '#2aa198'
+    color: '#fff'
   };
 
   render  = () => JSX.Element; {
